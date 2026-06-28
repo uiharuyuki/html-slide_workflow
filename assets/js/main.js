@@ -34,19 +34,30 @@
     `).join("");
   }
 
-  function renderPromptCards() {
-    const target = document.querySelector("[data-prompt-grid]");
+  function extractNumber(file) {
+    const match = String(file || "").match(/^(\d{2}(?:-\d)?)/);
+    return match ? match[1] : "";
+  }
+
+  function renderPromptList() {
+    const target = document.querySelector("[data-prompt-list]");
     if (!target) return;
 
-    target.innerHTML = prompts.map((item) => `
-      <article class="prompt-card">
-        <span class="tag">${escapeHtml(item.phase)}</span>
-        <h3>${escapeHtml(item.title)}</h3>
-        <code>${escapeHtml(item.file)}</code>
-        <p>${escapeHtml(item.summary)}</p>
-        <a class="text-link" href="${escapeHtml(item.href)}">promptを見る</a>
-      </article>
-    `).join("");
+    const items = prompts.filter((item) => /^0[1-9]/.test(item.file));
+
+    target.innerHTML = items.map((item) => {
+      const number = extractNumber(item.file);
+      return `
+        <li class="prompt-list__item">
+          <span class="prompt-list__number">${escapeHtml(number)}</span>
+          <div class="prompt-list__body">
+            <h3 class="prompt-list__title">${escapeHtml(item.title)}</h3>
+            <p class="prompt-list__summary">${escapeHtml(item.summary)}</p>
+          </div>
+          <a class="prompt-list__link" href="${escapeHtml(item.href)}">開く →</a>
+        </li>
+      `;
+    }).join("");
   }
 
   function exampleImage(item) {
@@ -149,7 +160,7 @@
   }
 
   renderStarterRoute();
-  renderPromptCards();
+  renderPromptList();
   renderExamples();
   bindExamplesButton();
   updateCounts();

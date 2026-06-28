@@ -15,9 +15,9 @@
         <span>HTML Slide Prompts</span>
       </a>
       <nav class="nav" aria-label="ページ内ナビゲーション">
-        <a href="#examples">成果物</a>
-        <a href="#how">使い方</a>
-        <a href="#prompts">Prompt</a>
+        <a href="#examples">成果物一覧</a>
+        <a href="#how">全体の流れ</a>
+        <a href="#prompts-list">プロンプト</a>
       </nav>
     </div>
   </header>
@@ -43,8 +43,8 @@
     <section id="examples" class="section">
       <div class="container">
         <div class="section__head">
-          <p class="eyebrow">Examples</p>
-          <h2>成果物のファーストビューで、完成形を確認する。</h2>
+          <p class="eyebrow">成果物一覧</p>
+          <h2>企画の共有は、htmlで解決！</h2>
           <p class="lead">掲載中の作例は全<span data-example-count>0</span>件。ファーストビュー画像から、完成形の雰囲気を確認できます。</p>
         </div>
         <div class="example-panel" data-example-panel>
@@ -60,9 +60,9 @@
     <section class="section section--white">
       <div class="container">
         <div class="section__head">
-          <p class="eyebrow">What you can do</p>
-          <h2>スライド制作を、流れで使える形にする。</h2>
-          <p class="lead">prompt単体ではなく、正本ファイルとレビューまで含めた制作手順として整理しています。</p>
+          <p class="eyebrow">コンセプト</p>
+          <h2>スライド制作の流れを構造化</h2>
+          <p class="lead">使い切りのプロンプトから再利用可能な構造化プロンプトへ。</p>
         </div>
         <div class="grid-3">
           <article class="feature-card">
@@ -87,7 +87,7 @@
     <section id="how" class="section">
       <div class="container">
         <div class="section__head">
-          <p class="eyebrow">How it works</p>
+          <p class="eyebrow">全体の流れ</p>
           <h2>使う順番がわかる、5つの工程。</h2>
           <p class="lead">まず全体像を見て、必要な工程のpromptだけを使えるようにします。</p>
         </div>
@@ -104,7 +104,7 @@
     <section class="section section--white">
       <div class="container">
         <div class="section__head">
-          <p class="eyebrow">Starter route</p>
+          <p class="eyebrow">はじめての一歩</p>
           <h2>初めてなら、この順番だけで始める。</h2>
           <p class="lead">全<span data-prompt-count>0</span>件のpromptから、最初に使いやすいものだけを抜き出しました。</p>
         </div>
@@ -112,49 +112,57 @@
       </div>
     </section>
 
-    <section id="prompts" class="section">
-      <div class="container">
-        <div class="section__head">
-          <p class="eyebrow">Prompt library</p>
-          <h2>必要な工程から、使うpromptを選ぶ。</h2>
-          <p class="lead">各カードで役割と使うタイミングを確認し、必要なMarkdownファイルを開いて使えます。</p>
-        </div>
-        <div class="prompt-grid" data-prompt-grid></div>
-      </div>
-    </section>
-
     <section class="section section--white">
       <div class="container">
         <div class="section__head">
-          <p class="eyebrow">Source of truth</p>
-          <h2>会話ではなく、正本ファイルを渡す。</h2>
-          <p class="lead">セッションが変わっても制作意図が失われないよう、役割ごとに正本を分けます。</p>
+          <p class="eyebrow">複数AIの活用</p>
+          <h2>複数AIの使い分けで高品質のhtml資料制作</h2>
+          <p class="lead">企画整理は対話型AIで、画像生成はCodexやChatGPTで、実装はClaude CodeやCodexで。役割ごとに得意なAIを使い分けます。</p>
         </div>
         <div class="source-grid">
           <article class="source-card">
-            <h3>project.md</h3>
-            <p>企画、構成、文章、トーンの正本。制作意図の中心です。</p>
+            <span class="source-card__step">STEP 1</span>
+            <h3>企画・整理</h3>
+            <p class="source-card__tools">好きなchat型AI / AIエージェント</p>
+            <p>壁打ち、方針確定、project.md化までを担当。雑メモから制作仕様書に落とし込みます。</p>
           </article>
           <article class="source-card">
-            <h3>image-assets.md</h3>
-            <p>画像の役割、配置、ファイル名、画像内文字の正本です。</p>
+            <span class="source-card__step">STEP 2</span>
+            <h3>画像生成</h3>
+            <p class="source-card__tools">Codex / ChatGPT</p>
+            <p>image-assets.mdの仕様をもとに、必要な画像を一括生成・改善します。</p>
           </article>
           <article class="source-card">
-            <h3>implementation-brief.md</h3>
-            <p>実装条件、禁止事項、完了条件を短く渡すための指示書です。</p>
+            <span class="source-card__step">STEP 3</span>
+            <h3>実装・レビュー</h3>
+            <p class="source-card__tools">Claude Code / Codex</p>
+            <p>正本ファイルと画像を渡してHTML/CSS/JS化し、Codexで仕上げレビューを行います。</p>
           </article>
         </div>
       </div>
     </section>
 
-    <section class="cta">
+    <section id="prompts-list" class="section section--white">
       <div class="container">
-        <h2>次のHTMLスライド制作を、最初の一手から整理する。</h2>
-        <p class="lead">まずは全体工程を確認し、必要なpromptから使い始めてください。</p>
-        <div class="hero__actions">
-          <a class="button" href="prompts/00_作業の流れ.md">全体工程を見る</a>
-          <a class="button" href="#prompts">prompt一覧へ</a>
+        <div class="section__head">
+          <p class="eyebrow">プロンプト一覧</p>
+          <h2>次のHTMLスライド制作を、最初の一手から整理する。</h2>
+          <p class="lead">01から09までのpromptを工程順に並べました。必要な番号から開いて使えます。</p>
         </div>
+        <ol class="prompt-list" data-prompt-list></ol>
+        <a class="github-card" href="https://github.com/uiharuyuki/html-slide_workflow/tree/main/prompts" target="_blank" rel="noopener">
+          <span class="github-card__icon" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 16 16" fill="currentColor">
+              <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+            </svg>
+          </span>
+          <div class="github-card__body">
+            <p class="github-card__label">GitHub</p>
+            <p class="github-card__title">prompts/ ディレクトリで01〜09を見る</p>
+            <p class="github-card__path">uiharuyuki/html-slide_workflow / prompts</p>
+          </div>
+          <span class="github-card__arrow" aria-hidden="true">↗</span>
+        </a>
       </div>
     </section>
   </main>

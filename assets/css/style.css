@@ -550,20 +550,164 @@ h3 {
   color: #fff;
 }
 
-.cta {
-  padding: 74px 0;
-  color: #fff;
+.source-card__step {
+  display: inline-flex;
+  align-items: center;
+  margin-bottom: 12px;
+  padding: 4px 10px;
+  border-radius: 999px;
   background: linear-gradient(135deg, #0b63ce, #0f9fbd);
+  color: #fff;
+  font-size: 0.74rem;
+  font-weight: 900;
+  letter-spacing: 0.04em;
 }
 
-.cta h2,
-.cta p {
+.source-card__tools {
+  margin: 0 0 8px;
+  color: var(--primary-dark);
+  font-weight: 800;
+  font-size: 0.95rem;
+}
+
+.prompt-list {
+  display: grid;
+  gap: 10px;
+  margin: 0 0 32px;
+  padding: 0;
+  list-style: none;
+  counter-reset: prompt;
+}
+
+.prompt-list__item {
+  display: grid;
+  grid-template-columns: 64px 1fr auto;
+  align-items: center;
+  gap: 18px;
+  padding: 16px 20px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: #fff;
+  transition: border-color 0.18s ease, transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.prompt-list__item:hover {
+  border-color: rgba(14, 153, 234, 0.7);
+  transform: translateY(-1px);
+  box-shadow: 0 10px 24px rgba(11, 99, 206, 0.10);
+}
+
+.prompt-list__number {
+  display: inline-grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  background: var(--surface-soft);
+  color: var(--primary-dark);
+  font-family: Consolas, "SFMono-Regular", monospace;
+  font-size: 1.05rem;
+  font-weight: 900;
+  letter-spacing: 0.02em;
+}
+
+.prompt-list__body {
+  min-width: 0;
+}
+
+.prompt-list__title {
+  margin: 0 0 4px;
+  font-size: 1.05rem;
+  line-height: 1.35;
+}
+
+.prompt-list__summary {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+  line-height: 1.55;
+}
+
+.prompt-list__link {
+  align-self: center;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: var(--surface-soft);
+  color: var(--primary-dark);
+  font-weight: 900;
+  font-size: 0.9rem;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.prompt-list__link:hover,
+.prompt-list__link:focus-visible {
+  background: var(--primary);
   color: #fff;
 }
 
-.cta .button {
-  background: #fff;
-  color: var(--primary-dark);
+.github-card {
+  display: grid;
+  grid-template-columns: 56px 1fr auto;
+  align-items: center;
+  gap: 18px;
+  padding: 18px 22px;
+  border: 1px solid #2d333b;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #0d1117, #1f242c);
+  color: #f0f6fc;
+  text-decoration: none;
+  box-shadow: 0 18px 38px rgba(13, 17, 23, 0.22);
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.github-card:hover,
+.github-card:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: 0 22px 44px rgba(13, 17, 23, 0.32);
+}
+
+.github-card__icon {
+  display: inline-grid;
+  place-items: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.08);
+  color: #f0f6fc;
+}
+
+.github-card__body {
+  min-width: 0;
+}
+
+.github-card__label {
+  margin: 0;
+  color: #8b949e;
+  font-size: 0.78rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.github-card__title {
+  margin: 4px 0 4px;
+  color: #f0f6fc;
+  font-size: 1.08rem;
+  font-weight: 800;
+}
+
+.github-card__path {
+  margin: 0;
+  color: #8b949e;
+  font-family: Consolas, "SFMono-Regular", monospace;
+  font-size: 0.82rem;
+}
+
+.github-card__arrow {
+  align-self: center;
+  font-size: 1.6rem;
+  color: #f0f6fc;
 }
 
 .site-footer {
@@ -594,6 +738,40 @@ h3 {
 @media (max-width: 720px) {
   .container {
     width: min(100% - 28px, var(--max));
+  }
+
+  .prompt-list__item {
+    grid-template-columns: 48px 1fr;
+    gap: 14px;
+    padding: 14px 16px;
+  }
+
+  .prompt-list__number {
+    width: 44px;
+    height: 44px;
+    font-size: 0.95rem;
+  }
+
+  .prompt-list__link {
+    grid-column: 2;
+    justify-self: start;
+    margin-top: 4px;
+  }
+
+  .github-card {
+    grid-template-columns: 48px 1fr;
+    padding: 16px 18px;
+  }
+
+  .github-card__icon {
+    width: 48px;
+    height: 48px;
+  }
+
+  .github-card__arrow {
+    grid-column: 2;
+    justify-self: end;
+    margin-top: 4px;
   }
 
   .site-header__inner {
