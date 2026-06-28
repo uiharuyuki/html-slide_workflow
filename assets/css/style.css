@@ -271,13 +271,18 @@ h3 {
 .feature-card__icon {
   display: inline-grid;
   place-items: center;
-  width: 42px;
-  height: 42px;
-  margin-bottom: 14px;
-  border-radius: 14px;
-  background: var(--surface-soft);
+  width: 56px;
+  height: 56px;
+  margin-bottom: 16px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, rgba(11, 99, 206, 0.10), rgba(15, 159, 189, 0.16));
   color: var(--primary-dark);
-  font-weight: 900;
+}
+
+.feature-card__svg {
+  width: 32px;
+  height: 32px;
+  display: block;
 }
 
 .map {
