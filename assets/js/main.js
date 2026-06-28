@@ -29,7 +29,6 @@
           <p>${escapeHtml(item.summary)}</p>
           <code>${escapeHtml(item.file)}</code>
         </div>
-        <a class="text-link" href="${escapeHtml(item.href)}">開く</a>
       </article>
     `).join("");
   }
@@ -54,7 +53,6 @@
             <h3 class="prompt-list__title">${escapeHtml(item.title)}</h3>
             <p class="prompt-list__summary">${escapeHtml(item.summary)}</p>
           </div>
-          <a class="prompt-list__link" href="${escapeHtml(item.href)}">開く →</a>
         </li>
       `;
     }).join("");
@@ -159,9 +157,56 @@
     if (exampleCount) exampleCount.textContent = String(examples.length);
   }
 
+  function bindThemeToggle() {
+    const button = document.querySelector("[data-theme-toggle]");
+    if (!button) return;
+
+    function currentTheme() {
+      return document.documentElement.getAttribute("data-theme") === "dark" ? "dark" : "light";
+    }
+
+    function applyTheme(theme) {
+      document.documentElement.setAttribute("data-theme", theme);
+      button.setAttribute("aria-label", theme === "dark" ? "ライトモードに切り替え" : "ダークモードに切り替え");
+    }
+
+    applyTheme(currentTheme());
+
+    button.addEventListener("click", () => {
+      const next = currentTheme() === "dark" ? "light" : "dark";
+      applyTheme(next);
+      try {
+        localStorage.setItem("theme", next);
+      } catch (e) {
+        /* localStorage unavailable, theme still applies for this session */
+      }
+    });
+
+    if (window.matchMedia) {
+      const media = window.matchMedia("(prefers-color-scheme: dark)");
+      const onChange = (event) => {
+        let stored = null;
+        try {
+          stored = localStorage.getItem("theme");
+        } catch (e) {
+          stored = null;
+        }
+        if (stored !== "dark" && stored !== "light") {
+          applyTheme(event.matches ? "dark" : "light");
+        }
+      };
+      if (typeof media.addEventListener === "function") {
+        media.addEventListener("change", onChange);
+      } else if (typeof media.addListener === "function") {
+        media.addListener(onChange);
+      }
+    }
+  }
+
   renderStarterRoute();
   renderPromptList();
   renderExamples();
   bindExamplesButton();
   updateCounts();
+  bindThemeToggle();
 })();
